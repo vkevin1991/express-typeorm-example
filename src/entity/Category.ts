@@ -10,7 +10,7 @@ export class Category {
     @Column()
     name: string;
 
-    @ManyToMany(type => Post)
+    @ManyToMany(type => Post, post => post.categories)
     @JoinTable()
     posts: Post[];
 }

@@ -4,9 +4,14 @@ This project is a basic starter project on how to use Express and TypeORM togeth
 
 The project is using right now SQLite as its DB engine.
 
+## Install
+
+```cmd
+    $ npm install
+```
+
 ## Run Project
 
 ```cmd
-    $ npm run watch-ts
-    $ npm run watch-node
+    $ npm run watch
 ```

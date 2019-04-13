@@ -7,14 +7,15 @@
     "build-ts": "tsc",
     "start": "npm run serve",
     "serve": "node dist/server.js",
-    "watch-node": "nodemon dist/server.js",
-    "watch-ts": "tsc -w"
+    "watch": "nodemon -e ts -w ./src -x npm run dev",
+    "dev": "ts-node ./src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.9",
+    "ts-node": "^8.0.3",
     "tslint": "^5.12.1",
     "typescript": "^3.2.4"
   },

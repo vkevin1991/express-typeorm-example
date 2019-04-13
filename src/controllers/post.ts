@@ -1,10 +1,14 @@
 import {Request, Response} from "express";
 import {getManager} from "typeorm";
 import {Post} from "../entity/Post";
+import { Category } from "../entity/Category";
 
 export async function post(request: Request, response: Response) {
     const postRepository = getManager().getRepository(Post);
-
+    const categoryRepository = getManager().getRepository(Category);
+    const categories = await categoryRepository.findByIds(request.body.categories)
+    request.body.categories = categories;
+    
     const newPost = postRepository.create(request.body);
 
     await postRepository.save(newPost);

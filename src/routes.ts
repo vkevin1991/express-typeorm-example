@@ -2,7 +2,11 @@ import app from './app'
 import { post as createPost, put as updatePost, remove as deletePost, getOne as getPost, getAll as getPosts } from "./controllers/post";
 import { post as createCategory, put as updateCategory, remove as deleteCategory, getOne as getCategory, getAll as getCategories } from "./controllers/category";
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => {
+    res.send({
+        "liu": "Laureate International Universities"
+    })
+});
 
 app.post('/category', createCategory);
 app.get('/category', getCategories);
