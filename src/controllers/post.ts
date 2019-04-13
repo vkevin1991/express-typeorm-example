@@ -38,7 +38,11 @@ export async function getOne(request: Request, response: Response) {
 
 export async function put(request: Request, response: Response) {
     const postRepository = getManager().getRepository(Post);
+    const categoryRepository = getManager().getRepository(Category);
+
     const post = await postRepository.findOne(request.params.id);
+    const categories = await categoryRepository.findByIds(request.body.categories)
+    request.body.categories = categories;
 
     // if post was not found return 404 to the client
     if (!post) {
