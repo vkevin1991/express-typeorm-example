@@ -9,7 +9,7 @@
     "start": "node dist/server.js",
     "watch": "nodemon -e ts -w ./src -x npm run dev",
     "dev": "ts-node ./src/server.ts",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "tsc"
   },
   "keywords": [],
   "author": "",
