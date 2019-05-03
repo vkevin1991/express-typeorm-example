@@ -8,7 +8,8 @@
     "serve": "npm run server",
     "start": "node dist/server.js",
     "watch": "nodemon -e ts -w ./src -x npm run dev",
-    "dev": "ts-node ./src/server.ts"
+    "dev": "ts-node ./src/server.ts",
+    "heroku-postbuild": "ng build --prod"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "sqlite3": "^4.0.6",
-    "typeorm": "^0.2.12"
+    "typeorm": "^0.2.12",
+    "typescript": "^3.2.4"
   }
 }

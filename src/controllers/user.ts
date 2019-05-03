@@ -13,6 +13,12 @@ export async function post(request: Request, response: Response) {
         const rolesRepository = getManager().getRepository(UserRole);
         const listposts = await postRepository.findByIds(request.body.posts);
         const listRoles = await rolesRepository.findByIds([request.body.role]);
+        const user = await userRepository.findOne({name: request.body.name});
+        if(user){
+            response.status(400);
+            response.send("That username is already taken");
+            return;
+        }
         request.body.posts = listposts;
         request.body.role = listRoles[0].id;
         request.body.password = encryptString(request.body.password);
@@ -54,6 +60,15 @@ export async function put(request: Request, response: Response) {
     }
 
     user.name = request.body.name || user.name;
+
+    if(request.body.name){
+        const checkUser = await userRepository.findOne({name: user.name});
+        if(checkUser){
+            response.status(404);
+            response.end("That username is already taken");
+            return;
+        }
+    }
     user.role = request.body.role || user.role;
     if(request.body.password){
         user.password = encryptString(request.body.password) 
