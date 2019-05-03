@@ -5,8 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "build-ts": "tsc",
-    "start": "npm run serve",
-    "serve": "node dist/server.js",
+    "serve": "npm run server",
+    "start": "node dist/server.js",
     "watch": "nodemon -e ts -w ./src -x npm run dev",
     "dev": "ts-node ./src/server.ts"
   },
