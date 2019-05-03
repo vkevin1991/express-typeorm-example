@@ -1,5 +1,5 @@
 # [START runtime]
-runtime: python27
+runtime: nodejs
 threadsafe: yes
 # [END runtime]
 handlers:
