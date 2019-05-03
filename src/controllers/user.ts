@@ -34,7 +34,7 @@ export async function getAll(request: Request, response: Response) {
 
 export async function getOne(request: Request, response: Response) {
     const userRepository = getManager().getRepository(User);
-    const user = await userRepository.findOne(request.params.id, { relations: ["posts"] });
+    const user = await userRepository.findOne(request.params.id, { relations: ["posts", "role"] });
 
     if (!user) {
         response.status(404);
